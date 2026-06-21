@@ -1,0 +1,240 @@
+---
+interface Props {
+  logo?: string
+}
+
+const { logo = 'Petmoda' } = Astro.props
+---
+
+<nav class="navbar" data-navbar>
+  <a href="#inicio" class="nav-logo">
+    <span class="nav-logo-main">{logo}</span>
+    <span class="nav-logo-sub">Design-Moda · UFC</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre nós</a></li>
+    <li><a href="#anais">Anais</a></li>
+    <li><a href="#atividades">Atividades</a></li>
+    <li><a href="#editais">Editais</a></li>
+    <li><a href="#membros">Membros</a></li>
+  </ul>
+
+  <button
+    class="nav-hamburger"
+    data-hamburger
+    type="button"
+    aria-label="Abrir menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" data-mobile-nav>
+  <button
+    class="nav-mobile-close"
+    data-mobile-close
+    type="button"
+    aria-label="Fechar menu"
+  >
+    &times;
+  </button>
+
+  <a href="#sobre" class="mob-link">Sobre nós</a>
+  <a href="#anais" class="mob-link">Anais</a>
+  <a href="#atividades" class="mob-link">Atividades</a>
+  <a href="#editais" class="mob-link">Editais</a>
+  <a href="#membros" class="mob-link">Membros</a>
+</div>
+
+<script>
+  const navbar = document.querySelector("[data-navbar]");
+  const mobileNav = document.querySelector("[data-mobile-nav]");
+  const hamburger = document.querySelector("[data-hamburger]");
+  const closeBtn = document.querySelector("[data-mobile-close]");
+
+  const updateNavbar = () => {
+    if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
+  };
+
+  const openMenu = () => {
+    if (mobileNav) {
+      mobileNav.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const closeMenu = () => {
+    if (mobileNav) {
+      mobileNav.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  };
+
+  updateNavbar();
+
+  window.addEventListener("scroll", updateNavbar, {
+    passive: true,
+  });
+
+  hamburger?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+
+  mobileNav?.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target instanceof HTMLElement && target.closest(".mob-link")) {
+      closeMenu();
+    }
+  });
+</script>
+
+<style>
+  .navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    transition:
+      background 0.35s ease,
+      border-bottom 0.35s ease;
+  }
+
+  .navbar.scrolled {
+    background: #000;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo-main {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.38em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-sub {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 0.5rem;
+    letter-spacing: 0.5em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 1.5rem;
+    height: 0.09rem;
+    background: #fff;
+  }
+
+  .nav-mobile {
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .nav-mobile.open {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+  }
+
+  .nav-mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .mob-link {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    transition: color 0.2s;
+  }
+
+  .mob-link:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-hamburger {
+      display: flex;
+    }
+
+    .navbar {
+      padding: 1rem 1.5rem;
+    }
+  }
+</style>

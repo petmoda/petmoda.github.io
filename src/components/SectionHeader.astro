@@ -1,0 +1,70 @@
+---
+interface Props {
+  eyebrow: string
+  title?: string
+  /**
+   * onLight  -> seção com fundo claro (Sobre, Atividades, Membros):
+   *             eyebrow accent, linha preta, título preto.
+   * onDark   -> seção com fundo escuro/colorido (Anais, Editais):
+   *             eyebrow gold, linha branca translúcida, título branco.
+   */
+  variant?: 'onLight' | 'onDark'
+}
+
+const { eyebrow, title, variant = 'onLight' } = Astro.props
+---
+
+<p class="sec-eyebrow" data-variant={variant}>{eyebrow}</p>
+<hr class="sec-rule" data-variant={variant} />
+{
+  title && (
+    <h2 class="sec-title reveal" data-variant={variant}>
+      {title}
+    </h2>
+  )
+}
+
+<style>
+  .sec-eyebrow {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.58rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-eyebrow[data-variant="onDark"] {
+    color: var(--color-gold);
+  }
+
+  .sec-rule {
+    border: none;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    opacity: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .sec-rule[data-variant="onDark"] {
+    background: #fff;
+    opacity: 0.2;
+  }
+
+  .sec-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 3rem;
+    color: #000;
+  }
+
+  .sec-title[data-variant="onDark"] {
+    color: #fff;
+  }
+</style>

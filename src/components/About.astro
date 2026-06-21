@@ -1,0 +1,122 @@
+---
+import SectionHeader from './SectionHeader.astro'
+---
+
+<section class="sobre bg-background py-16 px-5 md:py-24 md:px-10" id="sobre">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeader eyebrow="Sobre nós" />
+    <div class="sobre-grid">
+      <div class="sobre-left reveal">
+        <blockquote class="sobre-pullquote">
+          Moda como linguagem.<br />Pesquisa como prática.
+        </blockquote>
+      </div>
+      <div class="sobre-right reveal">
+        <p>
+          O PET Moda UFC é um grupo tutorial de educação vinculado ao curso de
+          Design-Moda da Universidade Federal do Ceará. Orientado pelo Programa
+          de Educação Tutorial, reúne estudantes e docentes comprometidos com a
+          produção acadêmica, cultural e extensionista no campo da moda.
+        </p>
+        <p>
+          Nossas pesquisas investigam a moda como fenômeno cultural e social,
+          com ênfase nas identidades nordestinas, na sustentabilidade têxtil e
+          nos processos criativos contemporâneos. Acreditamos que o Design-Moda
+          é uma linguagem capaz de articular territórios, corpos e narrativas.
+        </p>
+        <p>
+          Por meio de publicações, eventos, oficinas e parcerias institucionais,
+          o PET Moda contribui para a formação de pesquisadores críticos e
+          sensíveis às questões do tempo presente.
+        </p>
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <span class="sobre-stat-num">12</span>
+            <span class="sobre-stat-label">Membros ativos</span>
+          </div>
+          <div class="sobre-stat">
+            <span class="sobre-stat-num">24+</span>
+            <span class="sobre-stat-label">Publicações</span>
+          </div>
+          <div class="sobre-stat">
+            <span class="sobre-stat-num">6</span>
+            <span class="sobre-stat-label">Anos de pesquisa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .sobre-pullquote {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3vw, 2.6rem);
+    line-height: 1.25;
+    color: var(--color-primary);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .sobre-right p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 1.2rem;
+  }
+
+  .sobre-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid #000;
+    gap: 1px;
+    background: #000;
+    margin-top: 2.5rem;
+  }
+
+  .sobre-stat {
+    background: var(--color-background);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .sobre-stat-num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    display: block;
+  }
+
+  .sobre-stat-label {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 1024px) {
+    .sobre-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .sobre-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
