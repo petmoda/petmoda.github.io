@@ -1,0 +1,136 @@
+<section class="hero py-24 px-5 md:px-10" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div
+    class="hero-content relative z-2 mx-auto w-full max-w-7xl px-5 pb-16 md:px-10 md:pb-22"
+  >
+    <p class="hero-eyebrow">
+      Universidade Federal do Ceará &nbsp;·&nbsp; Programa de Educação Tutorial
+    </p>
+    <h1 class="hero-title">Pet<br />Moda</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">
+      Grupo de pesquisa, ensino e extensão em Design-Moda da UFC. Produzimos
+      conhecimento sobre moda, identidade e cultura com olhar crítico e estética
+      contemporânea.
+    </p>
+  </div>
+  <div class="hero-badge">
+    <span class="hero-badge-label">Desde</span>
+    <span class="hero-badge-num">2018</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    height: 100vh;
+    min-height: 38.75rem;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      140deg,
+      #2a0508 0%,
+      var(--color-primary) 45%,
+      var(--color-primary-dark) 100%
+    );
+  }
+
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.15) 55%,
+      transparent 100%
+    );
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(4.5rem, 13vw, 11rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 0.88;
+    margin-bottom: 2rem;
+  }
+
+  .hero-rule {
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-desc {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 34rem;
+    line-height: 1.85;
+  }
+
+  .hero-badge {
+    position: absolute;
+    right: 2.5rem;
+    bottom: 5.5rem;
+    z-index: 2;
+    text-align: right;
+  }
+
+  .hero-badge-label {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .hero-badge-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.06);
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .hero-badge {
+      display: none;
+    }
+  }
+</style>
