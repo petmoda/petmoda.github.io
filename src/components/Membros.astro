@@ -1,0 +1,81 @@
+---
+import { MEMBERS } from '../data/members'
+import SectionHeader from './SectionHeader.astro'
+---
+
+<section class="bg-background py-16 px-5 md:py-24 md:px-10" id="membros">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeader eyebrow="Quem faz o PET Moda" title="Membros" />
+
+    <div class="grid grid-cols-1 min-[520px]:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        MEMBERS.map((member) => (
+          <div class="flex flex-col reveal">
+            <div class="membro-photo" style={{ background: member.gradient }}>
+              {member.initials}
+            </div>
+            <div class="pt-[1.1rem]">
+              <span class="membro-role">{member.role}</span>
+              <span class="membro-name">{member.name}</span>
+              <p class="membro-bio">{member.bio}</p>
+              <span class="membro-area">{member.researchArea}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .membro-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border: 1.5px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2.75rem;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .membro-role {
+    font-family: var(--font-display);
+    font-size: 0.52rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .membro-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-foreground);
+    display: block;
+    margin-bottom: 0.55rem;
+  }
+
+  .membro-bio {
+    font-size: 0.8rem;
+    line-height: 1.75;
+    color: #555;
+  }
+
+  .membro-area {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-family: var(--font-display);
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+</style>
