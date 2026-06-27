@@ -1,0 +1,111 @@
+---
+import { CALLS, type CallStatus } from '../data/calls'
+import SectionHeader from './SectionHeader.astro'
+
+const STATUS_LABELS: Record<CallStatus, string> = {
+  OPEN: 'Aberto',
+  CLOSED: 'Encerrado',
+}
+
+const STATUS_CLASSES: Record<CallStatus, string> = {
+  OPEN: 'status-open',
+  CLOSED: 'status-closed',
+}
+---
+
+<section class="bg-primary py-16 px-5 md:py-24 md:px-10" id="editais">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeader
+      eyebrow="Chamadas e Oportunidades"
+      title="Editais"
+      variant="onDark"
+    />
+
+    <div class="border-t border-white/15">
+      {
+        CALLS.map((call, index) => (
+          <div class="grid grid-cols-1 gap-[0.6rem] md:grid-cols-[3rem_1fr_auto] md:gap-8 items-center py-7 border-b border-white/10 reveal">
+            <div class="edital-num hidden md:block">
+              {String(index + 1).padStart(2, "0")}
+            </div>
+
+            <div>
+              <span class={`status-badge ${STATUS_CLASSES[call.status]}`}>
+                {STATUS_LABELS[call.status]}
+              </span>
+              <span class="edital-title">{call.title}</span>
+              <span class="edital-deadline">{call.deadline}</span>
+            </div>
+
+            <a href={call.href} class="edital-link">
+              {call.linkLabel}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .edital-num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-open {
+    background: rgba(239, 182, 12, 0.15);
+    color: var(--color-gold);
+    border: 1px solid rgba(239, 182, 12, 0.5);
+  }
+
+  .status-closed {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .edital-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .edital-deadline {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .edital-link {
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid rgba(239, 182, 12, 0.4);
+    padding: 0.5rem 1.1rem;
+    transition: all 0.2s;
+  }
+  .edital-link:hover {
+    background: var(--color-gold);
+    color: #000;
+  }
+</style>
