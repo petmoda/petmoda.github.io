@@ -1,0 +1,152 @@
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-name">Petmoda</span>
+        <span class="footer-logo-sub">Design-Moda · UFC</span>
+        <p class="footer-desc">
+          Grupo de pesquisa tutorial em Design-Moda da Universidade Federal do
+          Ceará. Fortaleza, Ceará — Brasil.
+        </p>
+      </div>
+      <div>
+        <span class="footer-col-title">Navegação</span>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#anais">Produção científica</a></li>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#editais">Editais</a></li>
+          <li><a href="#membros">Membros</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contato</span>
+        <ul class="footer-links">
+          <li><a href="mailto:petmoda@ufc.br">petmoda@ufc.br</a></li>
+          <li>
+            <a href="https://www.instagram.com/petmoda_ufc">@petmoda_ufc</a>
+          </li>
+          <li>
+            <a href="https://maps.google.com/?q=Campus+do+Benfica,+Fortaleza+CE"
+              >Campus do Benfica, Fortaleza – CE</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy"
+        >© 2026 PET Moda UFC. Todos os direitos reservados.</span
+      >
+      <span class="footer-ufc">Universidade Federal do Ceará</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #000;
+    color: #fff;
+    padding: 4.5rem 2.5rem 2.5rem;
+  }
+
+  .footer-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: 0.38em;
+    color: #fff;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-logo-sub {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    letter-spacing: 0.45em;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-desc {
+    font-size: 0.8rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .footer-col-title {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .footer-ufc {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>
