@@ -1,0 +1,263 @@
+---
+import { PUBLICATIONS, type PublicationType } from '../data/anais'
+import SectionHeader from './SectionHeader.astro'
+
+const TYPE_LABELS: Record<PublicationType, string> = {
+  PAPER: 'Artigo',
+  ABSTRACT: 'Resumo',
+  CONFERENCE_PROCEEDINGS: 'Anais',
+}
+---
+
+<section class="bg-black py-16 px-5 md:py-24 md:px-10" id="anais">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeader
+      eyebrow="Produção Científica"
+      title="Anais"
+      variant="onDark"
+    />
+
+    <div class="flex gap-4 mb-5">
+      <input
+        class="anais-search"
+        id="anais-search-input"
+        type="text"
+        placeholder="Buscar por título, autor ou evento…"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-12">
+      <button class="filter-btn active" data-filter="todos" type="button"
+        >Todos</button
+      >
+      <button class="filter-btn" data-filter="PAPER" type="button"
+        >Artigo</button
+      >
+      <button
+        class="filter-btn"
+        data-filter="CONFERENCE_PROCEEDINGS"
+        type="button">Anais</button
+      >
+      <button class="filter-btn" data-filter="ABSTRACT" type="button"
+        >Resumo</button
+      >
+    </div>
+
+    <div class="anais-grid" id="anais-grid">
+      {
+        PUBLICATIONS.map((publication) => (
+          <div
+            class="anais-card"
+            data-tipo={publication.type}
+            data-id={publication.id}
+          >
+            <span class="anais-tipo">{TYPE_LABELS[publication.type]}</span>
+            <h3 class="anais-card-title">{publication.title}</h3>
+            <p class="anais-authors">{publication.authors.join(", ")}</p>
+            <div class="anais-meta">
+              <span class="anais-event">{publication.venue}</span>
+              <span class="anais-year">{publication.year}</span>
+            </div>
+            <a href={publication.url} class="anais-link">
+              Acessar &rarr;
+            </a>
+          </div>
+        ))
+      }
+      <div class="anais-empty" id="anais-empty" hidden>
+        Nenhuma produção encontrada
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Fuse from "fuse.js";
+  import { PUBLICATIONS, type PublicationType } from "../data/anais";
+
+  const grid = document.getElementById("anais-grid")!;
+  const searchInput = document.getElementById(
+    "anais-search-input",
+  ) as HTMLInputElement;
+  const filterBtns =
+    document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+  const emptyEl = document.getElementById("anais-empty")!;
+
+  type FilterValue = PublicationType | "todos";
+  let activeFilter: FilterValue = "todos";
+
+  const fuse = new Fuse(PUBLICATIONS, {
+    keys: ["title", "authors", "venue"],
+    threshold: 0.4,
+  });
+
+  function applySearch(): void {
+    const query = searchInput.value.trim();
+
+    const searched = query
+      ? fuse.search(query).map((r) => r.item)
+      : [...PUBLICATIONS];
+
+    const filtered =
+      activeFilter === "todos"
+        ? searched
+        : searched.filter((pub) => pub.type === activeFilter);
+
+    const allCards = grid.querySelectorAll<HTMLElement>(".anais-card[data-id]");
+    allCards.forEach((c) => (c.style.display = "none"));
+
+    for (const item of filtered) {
+      const card = grid.querySelector<HTMLElement>(`[data-id="${item.id}"]`);
+      if (!card) continue;
+      card.style.display = "";
+      grid.insertBefore(card, emptyEl);
+    }
+
+    emptyEl.hidden = filtered.length > 0;
+  }
+
+  searchInput.addEventListener("input", applySearch);
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = (btn.dataset.filter ?? "todos") as FilterValue;
+      applySearch();
+    });
+  });
+</script>
+
+<style>
+  .anais-search {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    padding: 0.8rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .anais-search::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .anais-search:focus {
+    border-color: var(--color-accent);
+  }
+
+  .filter-btn {
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+  .filter-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .anais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1px;
+    /* a cor de fundo cria as linhas de separação de 1px entre cards */
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .anais-card {
+    background: #000;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .anais-card:hover {
+    background: #0d0003;
+  }
+  .anais-tipo {
+    font-family: var(--font-display);
+    font-size: 0.52rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .anais-card-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .anais-authors {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .anais-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .anais-event {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .anais-year {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .anais-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .anais-link:hover {
+    color: #fff;
+  }
+
+  .anais-empty {
+    grid-column: 1 / -1;
+    padding: 4rem;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 520px) {
+    .anais-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
