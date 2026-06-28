@@ -1,6 +1,13 @@
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+---
+const year = new Date().getFullYear()
+---
+
+<footer class="bg-black text-white pt-18 pb-10 px-5 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <div
+      class="grid grid-cols-1 gap-8 pb-12 border-b border-white/8 mb-8
+      md:grid-cols-[1.2fr_1fr_1fr] md:gap-16"
+    >
       <div>
         <span class="footer-logo-name">Petmoda</span>
         <span class="footer-logo-sub">Design-Moda · UFC</span>
@@ -9,61 +16,63 @@
           Ceará. Fortaleza, Ceará — Brasil.
         </p>
       </div>
+
       <div>
         <span class="footer-col-title">Navegação</span>
-        <ul class="footer-links">
-          <li><a href="#sobre">Sobre nós</a></li>
-          <li><a href="#anais">Produção científica</a></li>
-          <li><a href="#atividades">Atividades</a></li>
-          <li><a href="#editais">Editais</a></li>
-          <li><a href="#membros">Membros</a></li>
+        <ul class="list-none flex flex-col gap-[0.65rem]">
+          <li><a href="#sobre" class="footer-link">Sobre nós</a></li>
+          <li><a href="#anais" class="footer-link">Produção científica</a></li>
+          <li><a href="#atividades" class="footer-link">Atividades</a></li>
+          <li><a href="#editais" class="footer-link">Editais</a></li>
+          <li><a href="#membros" class="footer-link">Membros</a></li>
         </ul>
       </div>
+
       <div>
         <span class="footer-col-title">Contato</span>
-        <ul class="footer-links">
-          <li><a href="mailto:petmoda@ufc.br">petmoda@ufc.br</a></li>
+        <ul class="list-none flex flex-col gap-[0.65rem]">
           <li>
-            <a href="https://www.instagram.com/petmoda_ufc">@petmoda_ufc</a>
+            <a href="mailto:petmoda@ufc.br" class="footer-link">
+              petmoda@ufc.br
+            </a>
           </li>
           <li>
-            <a href="https://maps.google.com/?q=Campus+do+Benfica,+Fortaleza+CE"
-              >Campus do Benfica, Fortaleza – CE</a
+            <a
+              href="https://www.instagram.com/petmoda_ufc"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              @petmoda_ufc
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://maps.google.com/?q=Campus+do+Benfica,+Fortaleza+CE"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Campus do Benfica, Fortaleza – CE
+            </a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy"
-        >© 2026 PET Moda UFC. Todos os direitos reservados.</span
-      >
+
+    <div
+      class="flex flex-col gap-2 text-center
+                md:flex-row md:justify-between md:items-center md:text-left"
+    >
+      <span class="footer-copy">
+        © {year} PET Moda UFC. Todos os direitos reservados.
+      </span>
       <span class="footer-ufc">Universidade Federal do Ceará</span>
     </div>
   </div>
 </footer>
 
 <style>
-  footer {
-    background: #000;
-    color: #fff;
-    padding: 4.5rem 2.5rem 2.5rem;
-  }
-
-  .footer-inner {
-    max-width: 80rem;
-    margin: 0 auto;
-  }
-
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 2rem;
-  }
-
   .footer-logo-name {
     font-family: var(--font-display);
     font-weight: 900;
@@ -78,8 +87,8 @@
     font-family: var(--font-display);
     font-size: 0.5rem;
     letter-spacing: 0.45em;
-    color: rgba(255, 255, 255, 0.3);
     text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
     display: block;
     margin-bottom: 1.25rem;
   }
@@ -100,28 +109,15 @@
     margin-bottom: 1.25rem;
   }
 
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-
-  .footer-links a {
+  .footer-link {
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover {
+  .footer-link:hover {
     color: var(--color-accent);
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .footer-copy {
@@ -135,18 +131,5 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.18);
-  }
-
-  @media (max-width: 768px) {
-    .footer-top {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
   }
 </style>
