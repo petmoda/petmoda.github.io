@@ -8,21 +8,30 @@ import SectionHeader from './SectionHeader.astro'
     <SectionHeader eyebrow="Quem faz o PET Moda" title="Membros" />
 
     <div class="grid grid-cols-1 min-[520px]:grid-cols-2 lg:grid-cols-3 gap-10">
-      {
-        MEMBERS.map((member) => (
-          <div class="flex flex-col reveal">
-            <div class="membro-photo" style={{ background: member.gradient }}>
-              {member.initials}
-            </div>
-            <div class="pt-[1.1rem]">
-              <span class="membro-role">{member.role}</span>
-              <span class="membro-name">{member.name}</span>
-              <p class="membro-bio">{member.bio}</p>
-              <span class="membro-area">{member.researchArea}</span>
+      {MEMBERS.map((member) => (
+        <div class="flex flex-col reveal">
+          <div class="membro-photo" style={{ background: member.gradient }}>
+            {member.profileImageSrc
+              ? <img
+                  src={`/${member.profileImageSrc}`}
+                  alt={`Foto de ${member.name}`}
+                  class="membro-photo-img"
+                />
+              : <span>{member.initials}</span>
+            }
+          </div>
+          <div class="pt-[1.1rem]">
+            <span class="membro-role">{member.role}</span>
+            <span class="membro-name">{member.name}</span>
+            <p class="membro-bio">{member.bio}</p>
+            <div class="membro-areas">
+              {member.researchAreas.map(area => (
+                <span class="membro-area">{area}</span>
+              ))}
             </div>
           </div>
-        ))
-      }
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -32,6 +41,7 @@ import SectionHeader from './SectionHeader.astro'
     width: 100%;
     aspect-ratio: 3 / 4;
     border: 1.5px solid #000;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,6 +50,14 @@ import SectionHeader from './SectionHeader.astro'
     font-size: 2.75rem;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.35);
+  }
+
+  .membro-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   .membro-role {
@@ -67,9 +85,14 @@ import SectionHeader from './SectionHeader.astro'
     color: #555;
   }
 
-  .membro-area {
-    display: inline-block;
+  .membro-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     margin-top: 0.85rem;
+  }
+
+  .membro-area {
     font-family: var(--font-display);
     font-size: 0.52rem;
     letter-spacing: 0.2em;
