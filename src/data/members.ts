@@ -12,7 +12,7 @@ export interface Member {
 export const MEMBERS = Object.freeze<Member[]>([
   {
     id: 1,
-    profileImageSrc: '',
+    profileImageSrc: 'members/sarah_fonseca.jpg',
     initials: 'SF',
     name: 'Sarah Jessica Dias da Fonseca',
     role: 'Bolsista PET',
@@ -37,7 +37,7 @@ export const MEMBERS = Object.freeze<Member[]>([
   },
   {
     id: 3,
-    profileImageSrc: '',
+    profileImageSrc: 'members/mar_varela.jpg',
     initials: 'MA',
     name: 'Maria Varela Ameijeiras',
     role: 'Bolsista PET',
@@ -173,7 +173,7 @@ export const MEMBERS = Object.freeze<Member[]>([
   },
   {
     id: 14,
-    profileImageSrc: '',
+    profileImageSrc: 'members/esther_torquato.jpg',
     initials: 'ES',
     name: 'Esther Torquato Soares',
     role: 'Bolsista PET',
