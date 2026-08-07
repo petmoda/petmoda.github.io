@@ -1,4 +1,5 @@
 ---
+import { MEMBERS } from '../data/members'
 import SectionHeader from './SectionHeader.astro'
 ---
 
@@ -31,7 +32,7 @@ import SectionHeader from './SectionHeader.astro'
         </p>
         <div class="sobre-stats">
           <div class="sobre-stat">
-            <span class="sobre-stat-num">12</span>
+            <span class="sobre-stat-num">{MEMBERS.length}</span>
             <span class="sobre-stat-label">Membros ativos</span>
           </div>
           <div class="sobre-stat">
