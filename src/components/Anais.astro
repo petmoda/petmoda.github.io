@@ -54,7 +54,9 @@ const TYPE_LABELS: Record<PublicationType, string> = {
           >
             <span class="anais-tipo">{TYPE_LABELS[publication.type]}</span>
             <h3 class="anais-card-title">{publication.title}</h3>
-            <p class="anais-authors">{publication.authors.join(", ")}</p>
+            {publication.authors.length > 0 && (
+              <p class="anais-authors">{publication.authors.join(", ")}</p>
+            )}
             <div class="anais-meta">
               <span class="anais-event">{publication.venue}</span>
               <span class="anais-year">{publication.year}</span>
