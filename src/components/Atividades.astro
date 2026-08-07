@@ -1,13 +1,25 @@
 ---
 import { ACTIVITIES } from '../data/activities'
 import SectionHeader from './SectionHeader.astro'
+
+const count = ACTIVITIES.length
+
+function acronym(name: string): string {
+  return name
+    .split(' ')
+    .filter((word) => word.length > 2 && /^[A-Za-zÀ-ú]/.test(word))
+    .slice(0, 3)
+    .map((word) => word[0]?.toUpperCase())
+    .filter(Boolean)
+    .join('')
+}
 ---
 
 <section class="bg-background py-16 px-5 md:py-24 md:px-10" id="atividades">
   <div class="mx-auto max-w-7xl">
     <SectionHeader eyebrow="Projetos e Eventos" title="Atividades" />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class={`grid grid-cols-1 md:grid-cols-2 ${count > 2 ? 'lg:grid-cols-3' : ''} gap-10`}>
       {
         ACTIVITIES.map((activity) => (
           <div class="flex flex-col reveal">
@@ -15,15 +27,25 @@ import SectionHeader from './SectionHeader.astro'
               class="ativ-placeholder"
               style={{ background: activity.gradient }}
             >
-              <span>Imagem</span>
+              {
+                activity.imageSrc
+                  ? <img src={`/${activity.imageSrc}`} alt={activity.name} class="ativ-placeholder-img" />
+                  : <span class="ativ-initials">{acronym(activity.name)}</span>
+              }
             </div>
             <div class="pt-5">
               <span class="ativ-tag">{activity.tag}</span>
               <h3 class="ativ-name">{activity.name}</h3>
               <p class="ativ-desc">{activity.description}</p>
-              <a href={activity.href} class="ativ-btn">
-                Saiba mais
-              </a>
+              {
+                activity.href
+                  ? (
+                      <a href={activity.href} class="ativ-btn">
+                        Saiba mais
+                      </a>
+                    )
+                  : <span class="ativ-soon">Em breve</span>
+              }
             </div>
           </div>
         ))
@@ -42,10 +64,7 @@ import SectionHeader from './SectionHeader.astro'
     justify-content: flex-start;
     padding: 1rem;
     font-family: var(--font-display);
-    font-size: 0.55rem;
-    letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
     position: relative;
     overflow: hidden;
   }
@@ -55,11 +74,27 @@ import SectionHeader from './SectionHeader.astro'
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
+    z-index: 1;
   }
 
-  .ativ-placeholder span {
+  .ativ-placeholder-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .ativ-initials {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    font-weight: 900;
+    font-size: 2.25rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1;
   }
 
   .ativ-tag {
@@ -107,5 +142,17 @@ import SectionHeader from './SectionHeader.astro'
   .ativ-btn:hover {
     color: var(--color-accent);
     border-color: var(--color-accent);
+  }
+
+  .ativ-soon {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    padding: 0.45rem 1rem;
   }
 </style>
