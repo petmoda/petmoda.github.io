@@ -1,5 +1,6 @@
 ---
 import { MEMBERS } from '../data/members'
+import { PUBLICATIONS } from '../data/anais'
 import SectionHeader from './SectionHeader.astro'
 
 const START_YEAR = 2011
@@ -20,21 +21,21 @@ const researchYears = Math.max(0, new Date().getFullYear() - START_YEAR)
           O PET-Moda é um grupo vinculado ao curso de graduação em Design-Moda
           da Universidade Federal do Ceará. Fazemos parte do Programa de
           Educação Tutorial (PET), iniciativa do Governo Federal brasileiro
-          voltada ao estímulo de atividades de ensino, pesquisa, tutoria e extensão
-          universitária.
+          voltada ao estímulo de atividades de ensino, pesquisa, tutoria e
+          extensão universitária.
         </p>
         <p>
-          Começamos nossas atividades em 2011 e, desde então, organizamos anualmente
-          a Semana Acadêmica de Moda, evento que promove a pesquisa no âmbito da
-          moda, aproximando discentes, docentes e profissionais da área em um
-          momento de trocas e aprendizados.
+          Começamos nossas atividades em 2011 e, desde então, organizamos
+          anualmente a Semana Acadêmica de Moda, evento que promove a pesquisa
+          no âmbito da moda, aproximando discentes, docentes e profissionais da
+          área em um momento de trocas e aprendizados.
         </p>
         <p>
           Nossos bolsistas produzem diversos artigos científicos durante sua
-          participação no programa, além de ministrarem grupos de estudo abertos ao
-          público voltados a diferentes áreas da moda, proporcionando à comunidade
-          acesso aos conhecimentos desenvolvidos na graduação e promovendo o
-          aprofundamento de temas que vão além da grade curricular.
+          participação no programa, além de ministrarem grupos de estudo abertos
+          ao público voltados a diferentes áreas da moda, proporcionando à
+          comunidade acesso aos conhecimentos desenvolvidos na graduação e
+          promovendo o aprofundamento de temas que vão além da grade curricular.
         </p>
         <div class="sobre-stats">
           <div class="sobre-stat">
@@ -42,7 +43,7 @@ const researchYears = Math.max(0, new Date().getFullYear() - START_YEAR)
             <span class="sobre-stat-label">Membros ativos</span>
           </div>
           <div class="sobre-stat">
-            <span class="sobre-stat-num">24+</span>
+            <span class="sobre-stat-num">{PUBLICATIONS.length}+</span>
             <span class="sobre-stat-label">Publicações</span>
           </div>
           <div class="sobre-stat">

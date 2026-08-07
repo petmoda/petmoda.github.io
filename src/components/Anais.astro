@@ -54,14 +54,23 @@ const TYPE_LABELS: Record<PublicationType, string> = {
           >
             <span class="anais-tipo">{TYPE_LABELS[publication.type]}</span>
             <h3 class="anais-card-title">{publication.title}</h3>
-            <p class="anais-authors">{publication.authors.join(", ")}</p>
+            {publication.authors.length > 0 && (
+              <p class="anais-authors">{publication.authors.join(", ")}</p>
+            )}
             <div class="anais-meta">
               <span class="anais-event">{publication.venue}</span>
               <span class="anais-year">{publication.year}</span>
             </div>
-            <a href={publication.url} class="anais-link">
-              Acessar &rarr;
-            </a>
+            {publication.url && (
+              <a
+                href={publication.url}
+                class="anais-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar &rarr;
+              </a>
+            )}
           </div>
         ))
       }
@@ -206,7 +215,7 @@ const TYPE_LABELS: Record<PublicationType, string> = {
   }
   .anais-authors {
     font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.75);
   }
   .anais-meta {
     display: flex;
@@ -221,7 +230,7 @@ const TYPE_LABELS: Record<PublicationType, string> = {
     font-size: 0.55rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
   }
   .anais-year {
     font-family: var(--font-display);
