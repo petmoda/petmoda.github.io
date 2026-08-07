@@ -34,12 +34,18 @@ const STATUS_CLASSES: Record<CallStatus, string> = {
                 {STATUS_LABELS[call.status]}
               </span>
               <span class="edital-title">{call.title}</span>
-              <span class="edital-deadline">{call.deadline}</span>
+              {call.deadline && (
+                <span class="edital-deadline">{call.deadline}</span>
+              )}
             </div>
 
-            <a href={call.href} class="edital-link">
-              {call.linkLabel}
-            </a>
+            {call.href ? (
+              <a href={call.href} class="edital-link">
+                {call.linkLabel}
+              </a>
+            ) : (
+              <span class="edital-link edital-link-muted">Encerrado</span>
+            )}
           </div>
         ))
       }
@@ -107,5 +113,11 @@ const STATUS_CLASSES: Record<CallStatus, string> = {
   .edital-link:hover {
     background: var(--color-gold);
     color: #000;
+  }
+
+  .edital-link-muted {
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: default;
   }
 </style>
