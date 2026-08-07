@@ -122,7 +122,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   // Publicações individuais
   {
     id: 12,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'Distorção do significado da bandeira do Brasil e blusa da seleção brasileira por Bolsonaro',
     authors: [
@@ -136,7 +136,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   },
   {
     id: 13,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'A retomada da blusa azul da seleção brasileira de futebol pelos brasileiros, após a distorção de significado de símbolos nacionais por Bolsonaro',
     authors: [
@@ -164,7 +164,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   },
   {
     id: 15,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'Evocando a nostalgia: O olfato como estratégia de consumo na marca Melissa',
     authors: [
@@ -193,7 +193,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   },
   {
     id: 17,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'Consumo e nostalgia: Análise da campanha "Sempre igual, sempre diferente" da Melissa',
     authors: [
@@ -206,7 +206,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   },
   {
     id: 18,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'Os concursos de beleza e as representações de padrões estéticos no filme Dumplin',
     authors: [
@@ -221,7 +221,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
   },
   {
     id: 19,
-    type: 'CONFERENCE_PROCEEDINGS',
+    type: 'PAPER',
     title:
       'Conhece ou é: O filme DUFF e a relação dos padrões de beleza com o corpo feminino',
     authors: [
