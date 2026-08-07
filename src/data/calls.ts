@@ -5,8 +5,10 @@ export interface Call {
   status: CallStatus
   title: string
   deadline?: string
-  href?: string
-  linkLabel?: string
+  link?: {
+    href: string
+    label: string
+  }
 }
 
 export const CALLS = Object.freeze<Call[]>([
@@ -15,8 +17,10 @@ export const CALLS = Object.freeze<Call[]>([
     status: 'CLOSED',
     title: 'Edital da XV Semana Acadêmica de Moda',
     deadline: 'Inscrições até 1 de agosto de 2026',
-    href: 'https://canva.link/uas7jzle0xi4m2w',
-    linkLabel: 'Acessar edital',
+    link: {
+      href: 'https://canva.link/uas7jzle0xi4m2w',
+      label: 'Acessar edital',
+    },
   },
   {
     id: 2,
