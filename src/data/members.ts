@@ -121,7 +121,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     initials: 'LF',
     name: 'Luísa Nunes Franco',
     role: 'Bolsista PET',
-    bio: 'Integra o PET Moda desde 2025, desenvolvendo pesquisas voltadas à decolonialidade na moda e à utilização do artesanato no vestuário como forma de comunicar identidades culturais. Além disso, é bolsista voluntária do Laboratório Experimental de Moda (Lamex) e artesã de crochê. Anteriormente, desenvolveu pesquisas sobre corpo e moda, explorando como os padrões estéticos afetam aqueles que não possuem um corpo adequado  eles.',
+    bio: 'Integra o PET Moda desde 2025, desenvolvendo pesquisas voltadas à decolonialidade na moda e à utilização do artesanato no vestuário como forma de comunicar identidades culturais. Além disso, é bolsista voluntária do Laboratório Experimental de Moda (Lamex) e artesã de crochê. Anteriormente, desenvolveu pesquisas sobre corpo e moda, explorando como os padrões estéticos afetam aqueles que não possuem um corpo adequado a eles.',
     researchAreas: ['Artesanato', 'Decolonialidade', 'Identidade Cultural'],
     gradient: 'linear-gradient(155deg, #2a4a6b 0%, #1a2d44 100%)',
   },
