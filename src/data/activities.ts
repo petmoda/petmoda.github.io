@@ -23,7 +23,7 @@ export const ACTIVITIES = Object.freeze<Activity[]>([
     tag: 'Oficina',
     name: 'PET Grupos',
     description:
-      'Os Pet Grupos são oficinas abertas promovidas pelo PET Moda UFC com o objetivo de promover conversas, aprendizados e trocas de conhecimentos sobre temas relacionados à arte, à moda, à cultura e à pesquisa. Realizadas durante o segundo semestre do ano, essas oficinas são planejadas e ministradas pelos(as) petianos(as), que escolhem livremente um tema de seu interesse pessoal para compartilhar com o público. A iniciativa busca incentivar o intercâmbio de saberes, a construção coletiva do conhecimento e o diálogo entre a universidade e a sociedade. As atividades são abertas à comunidade. Para participar, basta realizar a inscrição na oficina de seu interesse.',
+      'Os Pet Grupos são minicursos abertos promovidas pelo PET Moda UFC com o objetivo de promover conversas, aprendizados e trocas de conhecimentos sobre temas relacionados à arte, à moda, à cultura e à pesquisa. Realizadas durante o segundo semestre do ano, essas oficinas são planejadas e ministradas pelos(as) petianos(as), que escolhem livremente um tema de seu interesse pessoal para compartilhar com o público. A iniciativa busca incentivar o intercâmbio de saberes, a construção coletiva do conhecimento e o diálogo entre a universidade e a sociedade. As atividades são abertas à comunidade. Para participar, basta realizar a inscrição na oficina de seu interesse.',
     gradient: 'linear-gradient(140deg, var(--color-green) 0%, #0c3d2e 100%)',
   },
 ])
