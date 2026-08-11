@@ -11,6 +11,16 @@ export interface Member {
 
 export const MEMBERS = Object.freeze<Member[]>([
   {
+    id: 15,
+    profileImageSrc: 'members/emanuelle-silva.jpg',
+    initials: 'ER',
+    name: 'Emanuelle Kelly Ribeiro da Silva',
+    role: 'Professora',
+    bio: 'Possui graduação em Estilismo e Moda pela Universidade Federal do Ceará (UFC), Mestrado em Sociologia pelo Programa de Pós-Graduação em Sociologia da UFC e Doutorado em Educação Brasileira pela Faculdade de Educação da UFC (FACED). Atua como Professora Associada nível I com dedicação exclusiva e coordena o Curso de Design-Moda da Universidade Federal do Ceará. Desenvolve atividades de ensino, pesquisa e extensão nas áreas de moda, educação, cultura, comportamento e design, com ênfase nas interfaces entre teoria social, processos educativos e práticas criativas. É líder do Grupo de Pesquisa Naïf e autora do livro Quando a Cultura entra na Moda (Edições UFC, 2011). Sua produção acadêmica articula universidade e contextos sociais, artísticos e culturais, com foco na valorização dos saberes locais e na inovação em design e moda.',
+    researchAreas: ['Moda', 'Educação', 'Cultura', 'Sociedade', 'Design'],
+    gradient: 'linear-gradient(155deg, #2b3a67 0%, #1c2440 100%)',
+  },
+  {
     id: 1,
     profileImageSrc: 'members/sarah_fonseca.jpg',
     initials: 'SF',
