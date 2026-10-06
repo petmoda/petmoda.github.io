@@ -7,6 +7,7 @@ export interface Member {
   bio: string
   researchAreas: string[]
   gradient: string
+  visible?: boolean
 }
 
 export const MEMBERS = Object.freeze<Member[]>([
@@ -19,6 +20,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Possui graduação em Estilismo e Moda pela Universidade Federal do Ceará (UFC), Mestrado em Sociologia pelo Programa de Pós-Graduação em Sociologia da UFC e Doutorado em Educação Brasileira pela Faculdade de Educação da UFC (FACED). Atua como Professora Associada nível I com dedicação exclusiva e coordena o Curso de Design-Moda da Universidade Federal do Ceará. Desenvolve atividades de ensino, pesquisa e extensão nas áreas de moda, educação, cultura, comportamento e design, com ênfase nas interfaces entre teoria social, processos educativos e práticas criativas. É líder do Grupo de Pesquisa Naïf e autora do livro Quando a Cultura entra na Moda (Edições UFC, 2011). Sua produção acadêmica articula universidade e contextos sociais, artísticos e culturais, com foco na valorização dos saberes locais e na inovação em design e moda.',
     researchAreas: ['Moda', 'Educação', 'Cultura', 'Sociedade', 'Design'],
     gradient: 'linear-gradient(155deg, #2b3a67 0%, #1c2440 100%)',
+    visible: true,
   },
   {
     id: 1,
@@ -29,6 +31,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'No PET desde 2024, já desenvolveu pesquisas a respeito de indumentária de povos nativos, indumentária religiosa, distorção de símbolos nacionais, reprodutibilidade técnica da obra de arte no setor de vestuário e a intersecção entre moda e arte. Fora do PET, desenvolveu pesquisas sobre a questão racial no cinema e futebol, assim como realizou estudos a respeito das cores.',
     researchAreas: ['Arte', 'Cores', 'Percepção', 'Sociedade'],
     gradient: 'linear-gradient(155deg, #7d1621 0%, #600611 100%)',
+    visible: true,
   },
   {
     id: 2,
@@ -44,6 +47,7 @@ export const MEMBERS = Object.freeze<Member[]>([
       'Conforto e Percepção Sensorial',
     ],
     gradient: 'linear-gradient(155deg, #2d5a3d 0%, #1a3625 100%)',
+    visible: false,
   },
   {
     id: 3,
@@ -54,6 +58,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Entrou no PET em 2026, desenvolvendo pesquisas nas áreas de arte e consumo de moda. Além disso, tem interesse nas questões de identidade de gênero, tendo feito artigos e trabalhos focados na comunidade trans. Gosta também de explorar as intersecções de outras linguagens artísticas com a moda, como a dança, a música e o cinema.',
     researchAreas: ['Gênero', 'Arte', 'Identidade', 'Cultura'],
     gradient: 'linear-gradient(155deg, #4a3260 0%, #2d1e3d 100%)',
+    visible: true,
   },
   {
     id: 4,
@@ -71,6 +76,7 @@ export const MEMBERS = Object.freeze<Member[]>([
       'Identidade',
     ],
     gradient: 'linear-gradient(155deg, #1a1a1a 0%, #3a3a3a 100%)',
+    visible: false,
   },
   {
     id: 5,
@@ -81,6 +87,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'No PET desde 2026, atua no desenvolvimento de pesquisas sobre sociedade e cultura, com foco em comportamentos sociais e na cultura árabe. Também participa do projeto de extensão "MAS - Moda, Arte e Sustentabilidade" e atua na área do crochê, além de ter grande interesse por trabalhos manuais no geral.',
     researchAreas: ['Moda', 'Identidade', 'Cultura', 'Sociedade'],
     gradient: 'linear-gradient(155deg, #bb441f 0%, #7a2a0d 100%)',
+    visible: true,
   },
   {
     id: 6,
@@ -98,6 +105,7 @@ export const MEMBERS = Object.freeze<Member[]>([
       'Gênero',
     ],
     gradient: 'linear-gradient(155deg, #166d4e 0%, #0c3d2e 100%)',
+    visible: true,
   },
   {
     id: 7,
@@ -108,6 +116,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'No PET desde 2025, desenvolve pesquisas voltadas à ergonomia, à usabilidade e ao conforto do vestuário, sob a perspectiva de uma moda mais inclusiva. Ademais, investiga o papel da moda como fenômeno cultural, histórico e econômico na construção, representação e conformação dos corpos.',
     researchAreas: ['Moda', 'Corpo', 'Cultura', 'Conforto'],
     gradient: 'linear-gradient(155deg, #6b3a5d 0%, #442640 100%)',
+    visible: true,
   },
   {
     id: 8,
@@ -124,6 +133,7 @@ export const MEMBERS = Object.freeze<Member[]>([
       'Territorialidade',
     ],
     gradient: 'linear-gradient(155deg, #a62333 0%, #600611 100%)',
+    visible: true,
   },
   {
     id: 9,
@@ -134,6 +144,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Integra o PET Moda desde 2025, desenvolvendo pesquisas voltadas à decolonialidade na moda e à utilização do artesanato no vestuário como forma de comunicar identidades culturais. Além disso, é bolsista voluntária do Laboratório Experimental de Moda (Lamex) e artesã de crochê. Anteriormente, desenvolveu pesquisas sobre corpo e moda, explorando como os padrões estéticos afetam aqueles que não possuem um corpo adequado a eles.',
     researchAreas: ['Artesanato', 'Decolonialidade', 'Identidade Cultural'],
     gradient: 'linear-gradient(155deg, #2a4a6b 0%, #1a2d44 100%)',
+    visible: true,
   },
   {
     id: 10,
@@ -144,6 +155,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Integra o PET Moda desde 2026, desenvolvendo pesquisas na área social da moda, com foco nas relações entre vestimenta, religião, cultura e identidade. Realizou pesquisas sobre os véus muçulmanos e suas perspectivas históricas, buscando compreender seus significados culturais, sociais e simbólicos no contexto contemporâneo.',
     researchAreas: ['Cultura', 'Identidade', 'Moda'],
     gradient: 'linear-gradient(155deg, #5a3a1a 0%, #3d2610 100%)',
+    visible: true,
   },
   {
     id: 11,
@@ -160,6 +172,7 @@ export const MEMBERS = Object.freeze<Member[]>([
       'Sociedade',
     ],
     gradient: 'linear-gradient(155deg, #3a2a5a 0%, #241a3d 100%)',
+    visible: false,
   },
   {
     id: 12,
@@ -170,6 +183,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Integrante do PET Moda desde 2024, desenvolve pesquisas voltadas às relações entre consumo, identidade e sociedade, investigando as dinâmicas que permeiam a construção do valor simbólico da moda e os processos de decisão dos consumidores. Seus interesses de pesquisa abrangem as interseções entre cultura, comportamento de consumo e construção identitária. Ademais, também atua na área de comunicação, contribuindo para o planejamento estratégico, produção de conteúdo e gestão das mídias sociais.',
     researchAreas: ['Consumo', 'Sociedade', 'Identidade'],
     gradient: 'linear-gradient(155deg, #4a6b3a 0%, #2d4422 100%)',
+    visible: false,
   },
   {
     id: 13,
@@ -180,6 +194,7 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'No PET desde 2025, desenvolve pesquisas voltadas ao consumo, à identidade e à comunicação da moda, com foco na representação do indivíduo através de elementos visuais em meio digital, como skins para jogos. Além disso, é bolsista voluntária dos projetos LAMEX (Laboratório de Moda Experimental) e MAS (Moda, Arte e Sustentabilidade) e artista visual.',
     researchAreas: ['Consumo', 'Digital', 'Identidade'],
     gradient: 'linear-gradient(155deg, #ffffff 0%, #eeeeec 100%)',
+    visible: true,
   },
   {
     id: 14,
@@ -190,5 +205,54 @@ export const MEMBERS = Object.freeze<Member[]>([
     bio: 'Integra o PET desde 2026, desenvolve pesquisas com foco voltado à cultura e às relações pessoais, buscando entender melhor a relação entre a sociedade, cultura e moda. Participa de projetos como o "MAS - Moda, Arte e Sustentabilidade". Além disso, dedica-se a artes manuais com foco no crochê, explorando sua criatividade.',
     researchAreas: ['Cultura', 'Identidade', 'Sociedade', 'Moda', 'Arte'],
     gradient: 'linear-gradient(155deg, #6b5a2a 0%, #443a18 100%)',
+    visible: true,
+  },
+  {
+    id: 16,
+    profileImageSrc: 'members/gustavo-rodrigues.jpg',
+    initials: 'GR',
+    name: 'Gustavo Rodrigues Cavalcante',
+    role: 'Bolsista',
+    bio: 'Integra o PET Moda desde 2026, interessado em desenvolver pesquisas no âmbito social, com foco nas relações entre vestimenta, religião, cultura, memória e identidade. Entre suas experiências de pesquisa, destaca-se um estudo sobre a análise indumentária em uma casa de Umbanda, analisando como as vestimentas assumem diferentes significados dentro de suas vivências e contextos.',
+    researchAreas: ['Cultura', 'Identidade', 'Memória', 'Moda'],
+    gradient: 'linear-gradient(155deg, #1f5f66 0%, #123c41 100%)',
+    visible: true,
+  },
+  {
+    id: 17,
+    profileImageSrc: 'members/alonso-luyd.jpg',
+    initials: 'AL',
+    name: 'Alonso Luyd da Silva Santos Saraiva',
+    role: 'Bolsista (Voluntário)',
+    bio: 'Estudante do 2º semestre de Design-Moda na UFC e integrante do PET Moda desde 2026. Interessado em pesquisa, tem como principais áreas de interesse as relações entre moda, cultura, identidade e memória. Possui experiência nas áreas de produção de moda e styling, tendo participado de projetos e experiências práticas no setor. Busca aproximar a pesquisa acadêmica das práticas da moda, explorando diferentes perspectivas sobre criação, cultura e sociedade.',
+    researchAreas: ['Cultura', 'Identidade', 'Memória', 'Moda'],
+    gradient: 'linear-gradient(155deg, #454a52 0%, #2a2e34 100%)',
+    visible: true,
+  },
+  {
+    id: 18,
+    profileImageSrc: 'members/valentina-oliveira.jpg',
+    initials: 'VA',
+    name: 'Valentina de Oliveira Araújo',
+    role: 'Bolsista (Voluntário)',
+    bio: 'Membra do PET desde 2026. Tem interesse em desenvolver pesquisas nos âmbitos da cultura e da comunicação, com foco em áreas como figurinos, sub-culturas e comunidades digitais. Já trabalhou em pesquisas sobre o uso de chaveiros entre estudantes de Design-Moda.',
+    researchAreas: ['Comunicação', 'Digital', 'Sociedade', 'Cultura'],
+    gradient: 'linear-gradient(155deg, #8e3a5e 0%, #5c2340 100%)',
+    visible: true,
+  },
+  {
+    id: 19,
+    profileImageSrc: 'members/bruna-freire.jpg',
+    initials: 'BS',
+    name: 'Bruna Freire dos Santos',
+    role: 'Bolsista',
+    bio: 'Membra do PET Moda desde 2026. Tem interesse por pesquisa voltada às relações entre moda, cultura, consumo e identidade. Paralelamente à formação acadêmica, atua como estilista independente, artista visual e produtora cultural, desenvolvendo trabalhos que articulam moda experimental e cultura underground.',
+    researchAreas: ['Moda', 'Cultura', 'Consumo', 'Identidade'],
+    gradient: 'linear-gradient(155deg, #3a3f8f 0%, #232656 100%)',
+    visible: true,
   },
 ])
+
+export const VISIBLE_MEMBERS = Object.freeze(
+  MEMBERS.filter((member) => member.visible !== false),
+)
