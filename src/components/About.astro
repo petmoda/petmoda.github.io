@@ -1,6 +1,6 @@
 ---
-import { MEMBERS } from '../data/members'
 import { PUBLICATIONS } from '../data/anais'
+import { VISIBLE_MEMBERS } from '../data/members'
 import SectionHeader from './SectionHeader.astro'
 
 const START_YEAR = 2011
@@ -39,7 +39,7 @@ const researchYears = Math.max(0, new Date().getFullYear() - START_YEAR)
         </p>
         <div class="sobre-stats">
           <div class="sobre-stat">
-            <span class="sobre-stat-num">{MEMBERS.length}</span>
+            <span class="sobre-stat-num">{VISIBLE_MEMBERS.length}</span>
             <span class="sobre-stat-label">Membros ativos</span>
           </div>
           <div class="sobre-stat">
