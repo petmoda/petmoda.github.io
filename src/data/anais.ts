@@ -77,7 +77,7 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
     authors: [],
     venue: 'X Semana Acadêmica de Moda – Análogo X Digital: Dualidades na Moda',
     year: 2021,
-    url: 'https://drive.google.com/file/d/155yyO8aj-ZXRBKRsFpBV9Zc6PeQdXnVn/view',
+    url: 'https://drive.google.com/file/d/1xNIJImEE9WpbT_PJRtA3H1xmQlpnzfLc/view',
   },
   {
     id: 8,
@@ -118,6 +118,15 @@ export const PUBLICATIONS = Object.freeze<Publication[]>([
       'XIV Semana Acadêmica de Moda – Vestindo memórias: Saberes, ausências e afetos',
     year: 2025,
     url: 'https://ica.ufc.br/wp-content/uploads/2025/11/anais-sam-xiv.pdf',
+  },
+  {
+    id: 20,
+    type: 'CONFERENCE_PROCEEDINGS',
+    title: 'Anais 2026, v.12, n.12',
+    authors: [],
+    venue: 'XV Semana Acadêmica de Moda – Costurando um legado',
+    year: 2026,
+    url: 'https://drive.google.com/file/d/1Vge7r1Ryr0fCimv76jhWu37X6XcAXFOA/view',
   },
   // Publicações individuais
   {
